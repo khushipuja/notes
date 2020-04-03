@@ -1,0 +1,39 @@
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="/css/style2.css">
+
+
+<div class="w3-panel w3-pale-green w3-bottombar w3-border-green w3-border">
+  <p><h3>Welecome <%=user.name%>....These are your posts &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp<button ><a href="/home">ADD POSTS</a> </button></h3>
+  
+  </p>
+</div>
+<%if(posts){%>
+<%for(let post of posts){%>
+  <div class="w3-panel w3-border w3-light-grey w3-round-large">
+    <p>
+
+
+      <form action="/update/<%= post._id %>" method="POST" >
+        <input type="text"  name="content" placeholder="Your Name" value="<%=post.content%>"  size="50" required >
+      
+        
+        <button type="submit"  value="Update">UPDATE</button>
+        <button><a href="/delete-post/<%=post._id%>">DELETE</a></button>
+    </form>
+  
+    
+      </p>
+    <div >
+     
+      
+    </div>
+  </div>
+  <%}%>
+  
+  
+ 
+  <br>
+<%}%>
